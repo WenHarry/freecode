@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Load" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1540890855000</longProp>
+        <longProp name="ThreadGroup.end_time">1540890855000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Login" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="jsonParam" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${jsonParam}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">jsonParam</stringProp>
+              </elementProp>
+              <elementProp name="dkey1" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${dkey1}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey1</stringProp>
+              </elementProp>
+              <elementProp name="dkey2" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${dkey2}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey2</stringProp>
+              </elementProp>
+              <elementProp name="dkey3" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${dkey3}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey3</stringProp>
+              </elementProp>
+              <elementProp name="singnStr" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${singnStr}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">singnStr</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">http://10.53.156.126:16014/loan-web-deploy/app/dojson.json</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">//导入jar包
+import com.wdph.encrypt.EncryptRsa;
+String telephone = &quot;${user}&quot;;
+		String jsonParam = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;authPassword\&quot;: \&quot;wd123456\&quot;,&quot;
+				+ &quot;\&quot;identifySource\&quot;: \&quot;555588\&quot;,&quot;
+				+ &quot;\&quot;identifiers\&quot;: \&quot;&quot;+telephone+&quot;\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;046d5b6374603c5492bf95369a2441a8\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;600014\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;loginService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+EncryptRsa rs=new EncryptRsa();
+Map jsonParamMap= rs.getJsonParam(jsonParam);
+vars.put(&quot;dkey1&quot;,jsonParamMap.get(&quot;dkey1&quot;));
+vars.put(&quot;dkey2&quot;,jsonParamMap.get(&quot;dkey2&quot;));
+vars.put(&quot;dkey3&quot;,jsonParamMap.get(&quot;dkey3&quot;));
+vars.put(&quot;jsonParam&quot;,jsonParamMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;singnStr&quot;,jsonParamMap.get(&quot;singnStr&quot;));
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import com.hsjry.loan.app.common.util.Encrypt3Des;
+import com.wdph.encrypt.ParamConfig;
+//对返回的json数据处理
+String response_data = prev.getResponseDataAsString();
+String result=Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3);
+prev.setResponseData(result.getBytes(&quot;UTF-8&quot;));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="token" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">token</stringProp>
+            <stringProp name="RegexExtractor.regex">token&quot;:&quot;(.+?)&quot;</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">null</stringProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ConfirmLoad" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="jsonParam" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${jsonParam}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">jsonParam</stringProp>
+              </elementProp>
+              <elementProp name="dkey1" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${dkey1}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey1</stringProp>
+              </elementProp>
+              <elementProp name="dkey2" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${dkey2}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey2</stringProp>
+              </elementProp>
+              <elementProp name="dkey3" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${dkey3}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey3</stringProp>
+              </elementProp>
+              <elementProp name="singnStr" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${singnStr}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">singnStr</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">http://10.53.156.126:16014/loan-web-deploy/app/dojson.json</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">//导入jar包
+import com.wdph.encrypt.EncryptRsa;
+String repaymentAccountId = &quot;${repaymentAccountId}&quot;;
+String token = &quot;${token}&quot;;
+		String jsonParam = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;productType\&quot;: \&quot;13\&quot;,&quot;
+				+ &quot;\&quot;wifiMac\&quot;: \&quot;ac:74:09:c7:e3:d0\&quot;,&quot;
+				+ &quot;\&quot;repaymentMethod\&quot;: \&quot;2\&quot;,&quot;
+				+ &quot;\&quot;firstRepayTime\&quot;: \&quot;2018-12-03\&quot;,&quot;
+				+ &quot;\&quot;traderPassword\&quot;: \&quot;123456\&quot;,&quot;
+				+ &quot;\&quot;payLoanAccountId\&quot;: \&quot;&quot;+repaymentAccountId+&quot;\&quot;,&quot;
+				+ &quot;\&quot;loanTime\&quot;: \&quot;271\&quot;,&quot;
+				+ &quot;\&quot;wifiName\&quot;: \&quot;wandapuhui\&quot;,&quot;
+				+ &quot;\&quot;loanPeriod\&quot;: \&quot;6\&quot;,&quot;
+				+ &quot;\&quot;loanAmount\&quot;: \&quot;1000\&quot;,&quot;
+				+ &quot;\&quot;productClass\&quot;: \&quot;1\&quot;,&quot;
+				+ &quot;\&quot;repaymentDay\&quot;: \&quot;3\&quot;,&quot;
+				+ &quot;\&quot;loanInterestRate\&quot;: \&quot;0.100\&quot;,&quot;
+				+ &quot;\&quot;imei\&quot;: \&quot;862559034354623\&quot;,&quot;
+				+ &quot;\&quot;payChannel\&quot;: \&quot;1\&quot;,&quot;
+				+ &quot;\&quot;productId\&quot;: \&quot;83AAED6733974BE48544DA8B96B197A4\&quot;,&quot;
+				+ &quot;\&quot;loanUnit\&quot;: \&quot;4\&quot;,&quot;
+				+ &quot;\&quot;platformApi\&quot;: \&quot;ANDROID\&quot;,&quot;
+				+ &quot;\&quot;loanPurpose\&quot;: \&quot;2\&quot;,&quot;
+				+ &quot;\&quot;imsi\&quot;: \&quot;000000000000000\&quot;,&quot;
+				+ &quot;\&quot;repaymentAccountId\&quot;: \&quot;&quot;+repaymentAccountId+&quot;\&quot;,&quot;
+				+ &quot;\&quot;identifySource\&quot;: \&quot;111111111111\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;046d5b6374603c5492bf95369a2441a8\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;7000031\&quot;,&quot;
+				+ &quot;\&quot;tokenId\&quot;: \&quot;&quot;+token+&quot;\&quot;,&quot;  
+				+ &quot;\&quot;serviceId\&quot;: \&quot;confirmWdLoanService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+EncryptRsa rs=new EncryptRsa();
+Map jsonParamMap= rs.getJsonParam(jsonParam);
+vars.put(&quot;dkey1&quot;,jsonParamMap.get(&quot;dkey1&quot;));
+vars.put(&quot;dkey2&quot;,jsonParamMap.get(&quot;dkey2&quot;));
+vars.put(&quot;dkey3&quot;,jsonParamMap.get(&quot;dkey3&quot;));
+vars.put(&quot;jsonParam&quot;,jsonParamMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;singnStr&quot;,jsonParamMap.get(&quot;singnStr&quot;));
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import com.hsjry.loan.app.common.util.Encrypt3Des;
+import com.wdph.encrypt.ParamConfig;
+//对返回的json数据处理
+String response_data = prev.getResponseDataAsString();
+String result=Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3);
+prev.setResponseData(result.getBytes(&quot;UTF-8&quot;));
+</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+          <collectionProp name="Asserion.test_strings">
+            <stringProp name="-547797305">&quot;success&quot;:true</stringProp>
+          </collectionProp>
+          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+          <boolProp name="Assertion.assume_success">false</boolProp>
+          <intProp name="Assertion.test_type">16</intProp>
+        </ResponseAssertion>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+          <stringProp name="filename">/home/jenkins/workspace/PerformanceTest/csv/jiekuan2.csv</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="variableNames">user,repaymentAccountId</stringProp>
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <stringProp name="delimiter">,</stringProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <boolProp name="stopThread">true</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

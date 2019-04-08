@@ -1,0 +1,1064 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="3.2" jmeter="3.2 r1790748">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="user" elementType="Argument">
+            <stringProp name="Argument.name">user</stringProp>
+            <stringProp name="Argument.value">${user}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="注册登录校验" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1496712176000</longProp>
+        <longProp name="ThreadGroup.end_time">1496712176000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">1200</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="注册" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="dkey1" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${dkey1}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey1</stringProp>
+              </elementProp>
+              <elementProp name="dkey2" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${dkey2}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey2</stringProp>
+              </elementProp>
+              <elementProp name="dkey3" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${dkey3}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey3</stringProp>
+              </elementProp>
+              <elementProp name="jsonParam" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${jsonParam}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">jsonParam</stringProp>
+              </elementProp>
+              <elementProp name="singnStr" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${singnStr}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">singnStr</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">http://10.53.156.126:16014/loan-web-deploy/app/dojson.json</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.proxyHost">http://autoproxy.wanda.cn/proxy.pac</stringProp>
+          <stringProp name="HTTPSampler.proxyUser">wenchunbao</stringProp>
+          <stringProp name="HTTPSampler.proxyPass">Tingbao609</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
+            <intProp name="calcMode">0</intProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>60.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import com.hsjry.loan.app.common.util.Encrypt3Des;
+import com.wdph.encrypt.ParamConfig;
+//对返回的json数据处理
+String response_data = prev.getResponseDataAsString();
+String result=Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3);
+prev.setResponseData(result.getBytes(&quot;UTF-8&quot;));
+//vars.put(&quot;result&quot;,result);
+//log.info(&quot;====********************************************************************&quot;+ response_data);
+//log.info(&quot;====**********&quot;+Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取器" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">token</stringProp>
+            <stringProp name="RegexExtractor.regex">token&quot;:&quot;(.+?)&quot;</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">null</stringProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="false">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">//导入jar包
+import com.wdph.encrypt.EncryptRsa;
+String telephone = &quot;${user}&quot;;
+String certno = &quot;${certno}&quot;;
+String token = &quot;${token}&quot;;
+String acctno = &quot;${acctno}&quot;;
+String registJson = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;marketingCues\&quot;: \&quot;3\&quot;,&quot;
+				+ &quot;\&quot;authCheckCode\&quot;: \&quot;555588\&quot;,&quot;
+				+ &quot;\&quot;authPassword\&quot;: \&quot;wd123456\&quot;,&quot;
+				+ &quot;\&quot;telephone\&quot;: \&quot;&quot;+telephone+&quot;\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;600010\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;registerService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+
+EncryptRsa rs=new EncryptRsa();
+//register
+Map registMap= rs.getJsonParam(registJson);
+vars.put(&quot;dkey1&quot;,registMap.get(&quot;dkey1&quot;));
+vars.put(&quot;dkey2&quot;,registMap.get(&quot;dkey2&quot;));
+vars.put(&quot;dkey3&quot;,registMap.get(&quot;dkey3&quot;));
+vars.put(&quot;jsonParam&quot;,registMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;singnStr&quot;,registMap.get(&quot;singnStr&quot;));
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="登录" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="dkey1" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${loginkey1}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey1</stringProp>
+              </elementProp>
+              <elementProp name="dkey2" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${loginkey2}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey2</stringProp>
+              </elementProp>
+              <elementProp name="dkey3" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${loginkey3}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey3</stringProp>
+              </elementProp>
+              <elementProp name="jsonParam" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${loginParam}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">jsonParam</stringProp>
+              </elementProp>
+              <elementProp name="singnStr" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${loginSingn}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">singnStr</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">http://10.53.156.126:16014/loan-web-deploy/app/dojson.json</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.proxyHost">http://autoproxy.wanda.cn/proxy.pac</stringProp>
+          <stringProp name="HTTPSampler.proxyUser">wenchunbao</stringProp>
+          <stringProp name="HTTPSampler.proxyPass">Tingbao609</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="false">
+            <intProp name="calcMode">0</intProp>
+            <doubleProp>
+              <name>throughput</name>
+              <value>60.0</value>
+              <savedValue>0.0</savedValue>
+            </doubleProp>
+          </ConstantThroughputTimer>
+          <hashTree/>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="false">
+            <stringProp name="filename"></stringProp>
+            <stringProp name="parameters"></stringProp>
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="script">//导入jar包
+import com.wdph.encrypt.EncryptRsa;
+String telephone = &quot;${user}&quot;;
+String jsonParam = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;authPassword\&quot;: \&quot;wd123456\&quot;,&quot;
+				+ &quot;\&quot;identifySource\&quot;: \&quot;555588\&quot;,&quot;
+				+ &quot;\&quot;identifiers\&quot;: \&quot;&quot;+telephone+&quot;\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;600014\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;loginService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+EncryptRsa rs=new EncryptRsa();
+Map jsonParamMap= rs.getJsonParam(jsonParam);
+vars.put(&quot;loginkey1&quot;,jsonParamMap.get(&quot;dkey1&quot;));
+vars.put(&quot;loginkey2&quot;,jsonParamMap.get(&quot;dkey2&quot;));
+vars.put(&quot;loginkey3&quot;,jsonParamMap.get(&quot;dkey3&quot;));
+vars.put(&quot;loginParam&quot;,jsonParamMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;loginSingn&quot;,jsonParamMap.get(&quot;singnStr&quot;));
+
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import com.hsjry.loan.app.common.util.Encrypt3Des;
+import com.wdph.encrypt.ParamConfig;
+//对返回的json数据处理
+String response_data = prev.getResponseDataAsString();
+String result=Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3);
+prev.setResponseData(result.getBytes(&quot;UTF-8&quot;));
+//vars.put(&quot;result&quot;,result);
+//log.info(&quot;====********************************************************************&quot;+ response_data);
+//log.info(&quot;====**********&quot;+Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取器" enabled="true">
+            <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+            <stringProp name="RegexExtractor.refname">token</stringProp>
+            <stringProp name="RegexExtractor.regex">token&quot;:&quot;(.+?)&quot;</stringProp>
+            <stringProp name="RegexExtractor.template">$1$</stringProp>
+            <stringProp name="RegexExtractor.default">null</stringProp>
+            <stringProp name="RegexExtractor.match_number">0</stringProp>
+          </RegexExtractor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="身份证认证" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="jsonParam" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${identityParam}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">jsonParam</stringProp>
+              </elementProp>
+              <elementProp name="dkey1" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${identitykey1}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey1</stringProp>
+              </elementProp>
+              <elementProp name="dkey2" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${identitykey2}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey2</stringProp>
+              </elementProp>
+              <elementProp name="dkey3" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${identitykey3}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey3</stringProp>
+              </elementProp>
+              <elementProp name="singnStr" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${singnStr}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">singnStr</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">http://10.53.156.126:16014/loan-web-deploy/app/dojson.json</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import com.hsjry.loan.app.common.util.Encrypt3Des;
+import com.wdph.encrypt.ParamConfig;
+//对返回的json数据处理
+String response_data = prev.getResponseDataAsString();
+String result=Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3);
+prev.setResponseData(result.getBytes(&quot;UTF-8&quot;));
+//vars.put(&quot;result&quot;,result);
+//log.info(&quot;====********************************************************************&quot;+ response_data);
+//log.info(&quot;====**********&quot;+Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+          <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="false">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">//导入jar包
+import com.wdph.encrypt.EncryptRsa;
+String telephone = &quot;${user}&quot;;
+String certno = &quot;${certno}&quot;;
+String token = &quot;${token}&quot;;
+String acctno = &quot;${acctno}&quot;;
+
+String identityJson = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;issuanceOrg\&quot;: \&quot;长沙市公安局芙蓉分局\&quot;,&quot;
+				+ &quot;\&quot;clientName\&quot;: \&quot;闵文剑\&quot;,&quot;
+				+ &quot;\&quot;idImgFrontType\&quot;: \&quot;3\&quot;,&quot;
+				+ &quot;\&quot;certificateKind\&quot;: \&quot;0\&quot;,&quot;
+				+ &quot;\&quot;invalidDate\&quot;: \&quot;长期\&quot;,&quot;
+				+ &quot;\&quot;idCardNation\&quot;: \&quot;汉\&quot;,&quot;
+				+ &quot;\&quot;idImgReverseType\&quot;: \&quot;3\&quot;,&quot;
+				+ &quot;\&quot;reverseImgUrl\&quot;: \&quot;appfile/20180904/20180904_C28B7AF26B1E40519ED5D3882511C854.jpg\&quot;,&quot;
+				+ &quot;\&quot;publishDate\&quot;: \&quot;2006/02/16\&quot;,&quot;
+				+ &quot;\&quot;certificateAddress\&quot;: \&quot;南昌市东湖区都会在镇大哈村2号\&quot;,&quot;
+				+ &quot;\&quot;frontImgUrl\&quot;: \&quot;appfile/20180904/20180904_223C6304BC3849DF90937BAB0E27CF0A.jpg\&quot;,&quot;
+				+ &quot;\&quot;certificateNo\&quot;: \&quot;&quot;+certno+&quot;\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;7000018\&quot;,&quot;
+				+ &quot;\&quot;tokenId\&quot;: \&quot;&quot;+token+&quot;\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;addIdentityAuthService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+String realNameJson = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;imageUrl\&quot;: \&quot;appfile/20180905/20180905_74A3A6146BA646DB93EB3AE51E75BF59.jpg\&quot;,&quot;
+				+ &quot;\&quot;protobufId\&quot;: \&quot;568e0e99253343ca8bf95ded200b05a7\&quot;,&quot;
+				+ &quot;\&quot;productNo\&quot;: \&quot;PRODUCT0000000000013\&quot;,&quot;
+				+ &quot;\&quot;imageUrl1\&quot;: \&quot;appfile/20180905/20180905_F67454E7C39243B0B2C516D2050ABD99.jpg\&quot;,&quot;
+				+ &quot;\&quot;imageUrl2\&quot;: \&quot;appfile/20180905/20180905_528E2232A6CF4EF9966C876887226C0C.jpg\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;7000084\&quot;,&quot;
+				+ &quot;\&quot;tokenId\&quot;: \&quot;&quot;+token+&quot;\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;senseTimeRealNameVerifyService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+String modifyPersonalJson = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;vocation\&quot;: \&quot;22\&quot;,&quot;
+				+ &quot;\&quot;marriageStatus\&quot;: \&quot;10\&quot;,&quot;
+				+ &quot;\&quot;clientName\&quot;: \&quot;万达惠\&quot;,&quot;
+				+ &quot;\&quot;commonBankCard\&quot;: \&quot; \&quot;,&quot;
+				+ &quot;\&quot;county\&quot;: \&quot;浦东新区\&quot;,&quot;
+				+ &quot;\&quot;province\&quot;: \&quot;上海市\&quot;,&quot;
+				+ &quot;\&quot;productNo\&quot;: \&quot;PRODUCT0000000000013\&quot;,&quot;
+				+ &quot;\&quot;eduLevel\&quot;: \&quot;20\&quot;,&quot;
+				+ &quot;\&quot;clientRelation\&quot;: \&quot;5\&quot;,&quot;	
+				+ &quot;\&quot;street\&quot;: \&quot;北京市朝阳区彩虹路\&quot;,&quot;
+				+ &quot;\&quot;companyName\&quot;: \&quot;北京蓝汛\&quot;,&quot;
+				+ &quot;\&quot;telephone\&quot;: \&quot;13800138002\&quot;,&quot;
+				+ &quot;\&quot;pretaxIncome\&quot;: \&quot;50000\&quot;,&quot;
+				+ &quot;\&quot;companyTelephone\&quot;: \&quot;-\&quot;,&quot;
+				+ &quot;\&quot;businessLicense\&quot;: \&quot; \&quot;,&quot;
+				+ &quot;\&quot;addressClassCode\&quot;: \&quot;21\&quot;,&quot;	
+				+ &quot;\&quot;city\&quot;: \&quot;市辖区\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;7000021\&quot;,&quot;
+				+ &quot;\&quot;tokenId\&quot;: \&quot;&quot;+token+&quot;\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;modifyPersonalUserInfoService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+String bindCardJson = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;authCheckCode\&quot;: \&quot;123242\&quot;,&quot;
+				+ &quot;\&quot;branchName\&quot;: \&quot;上海浦东发展银行\&quot;,&quot;
+				+ &quot;\&quot;certificateNo\&quot;: \&quot;&quot;+certno+&quot;\&quot;,&quot;
+				+ &quot;\&quot;telephone\&quot;: \&quot;&quot;+telephone+&quot;\&quot;,&quot;
+				+ &quot;\&quot;realName\&quot;: \&quot;闵文剑\&quot;,&quot;
+				+ &quot;\&quot;cardNo\&quot;:  \&quot;&quot;+acctno+&quot;\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;600003\&quot;,&quot;
+				+ &quot;\&quot;tokenId\&quot;: \&quot;&quot;+token+&quot;\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;bindCardRealNameService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+String updateCreditJson = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;productId\&quot;: \&quot;83AAED6733974BE48544DA8B96B197A4\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;7000023\&quot;,&quot;
+				+ &quot;\&quot;tokenId\&quot;: \&quot;&quot;+token+&quot;\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;updateCreditService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+EncryptRsa rs=new EncryptRsa();
+
+//addIdentityAuthService
+
+Map identityMap= rs.getJsonParam(identityJson);
+vars.put(&quot;identitykey1&quot;,identityMap.get(&quot;dkey1&quot;));
+vars.put(&quot;identitykey2&quot;,identityMap.get(&quot;dkey2&quot;));
+vars.put(&quot;identitykey3&quot;,identityMap.get(&quot;dkey3&quot;));
+vars.put(&quot;identityParam&quot;,identityMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;identitySingn&quot;,identityMap.get(&quot;singnStr&quot;));
+//senseTimeRealNameVerifyService
+
+Map realNameMap= rs.getJsonParam(realNameJson);
+vars.put(&quot;realNamekey1&quot;,realNameMap.get(&quot;dkey1&quot;));
+vars.put(&quot;realNamekey2&quot;,realNameMap.get(&quot;dkey2&quot;));
+vars.put(&quot;realNamekey3&quot;,realNameMap.get(&quot;dkey3&quot;));
+vars.put(&quot;realNameParam&quot;,realNameMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;realNameSingn&quot;,realNameMap.get(&quot;singnStr&quot;));
+//modifyPersonalUserInfoService
+
+Map modifyPersonMap= rs.getJsonParam(modifyPersonalJson);
+vars.put(&quot;modifyPersonkey1&quot;,modifyPersonMap.get(&quot;dkey1&quot;));
+vars.put(&quot;modifyPersonkey2&quot;,modifyPersonMap.get(&quot;dkey2&quot;));
+vars.put(&quot;modifyPersonkey3&quot;,modifyPersonMap.get(&quot;dkey3&quot;));
+vars.put(&quot;modifyPersonParam&quot;,modifyPersonMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;modifyPersonSingn&quot;,modifyPersonMap.get(&quot;singnStr&quot;));
+//bindCardRealNameService
+
+Map bindCardMap= rs.getJsonParam(bindCardJson);
+vars.put(&quot;bindCardkey1&quot;,bindCardMap.get(&quot;dkey1&quot;));
+vars.put(&quot;bindCardkey2&quot;,bindCardMap.get(&quot;dkey2&quot;));
+vars.put(&quot;bindCardkey3&quot;,bindCardMap.get(&quot;dkey3&quot;));
+vars.put(&quot;bindCardParam&quot;,bindCardMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;bindCardSingn&quot;,bindCardMap.get(&quot;singnStr&quot;));
+
+//updateCreditService
+
+Map bindCardMap= rs.getJsonParam(updateCreditJson);
+vars.put(&quot;updateCreditkey1&quot;,bindCardMap.get(&quot;dkey1&quot;));
+vars.put(&quot;updateCreditkey2&quot;,bindCardMap.get(&quot;dkey2&quot;));
+vars.put(&quot;updateCreditkey3&quot;,bindCardMap.get(&quot;dkey3&quot;));
+vars.put(&quot;updateCreditParam&quot;,bindCardMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;updateCreditSingn&quot;,bindCardMap.get(&quot;singnStr&quot;));
+</stringProp>
+          </BeanShellPreProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="商汤实名认证" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="jsonParam" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${realNameParam}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">jsonParam</stringProp>
+              </elementProp>
+              <elementProp name="dkey1" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${realNamekey1}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey1</stringProp>
+              </elementProp>
+              <elementProp name="dkey2" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${realNamekey2}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey2</stringProp>
+              </elementProp>
+              <elementProp name="dkey3" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${realNamekey3}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey3</stringProp>
+              </elementProp>
+              <elementProp name="singnStr" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${realNameSingn}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">singnStr</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">http://10.53.156.126:16014/loan-web-deploy/app/dojson.json</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import com.hsjry.loan.app.common.util.Encrypt3Des;
+import com.wdph.encrypt.ParamConfig;
+//对返回的json数据处理
+String response_data = prev.getResponseDataAsString();
+String result=Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3);
+prev.setResponseData(result.getBytes(&quot;UTF-8&quot;));
+//vars.put(&quot;result&quot;,result);
+//log.info(&quot;====********************************************************************&quot;+ response_data);
+//log.info(&quot;====**********&quot;+Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="getUUID" enabled="false">
+          <stringProp name="BeanShellSampler.query">import java.util.UUID;
+
+UUID uuid1 = UUID.randomUUID();    //获取UID的值
+vars.put(&quot;unique_id&quot;,(uuid1.toString()).replaceAll(&quot;-&quot;,&quot;&quot;));
+
+
+</stringProp>
+          <stringProp name="BeanShellSampler.filename"></stringProp>
+          <stringProp name="BeanShellSampler.parameters">vars</stringProp>
+          <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+        </BeanShellSampler>
+        <hashTree/>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="修改个人客户信息" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="jsonParam" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${modifyPersonParam}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">jsonParam</stringProp>
+              </elementProp>
+              <elementProp name="dkey1" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${modifyPersonkey1}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey1</stringProp>
+              </elementProp>
+              <elementProp name="dkey2" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${modifyPersonkey2}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey2</stringProp>
+              </elementProp>
+              <elementProp name="dkey3" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${modifyPersonkey3}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey3</stringProp>
+              </elementProp>
+              <elementProp name="singnStr" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${modifyPersonSingn}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">singnStr</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">http://10.53.156.126:16014/loan-web-deploy/app/dojson.json</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import com.hsjry.loan.app.common.util.Encrypt3Des;
+import com.wdph.encrypt.ParamConfig;
+//对返回的json数据处理
+String response_data = prev.getResponseDataAsString();
+String result=Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3);
+prev.setResponseData(result.getBytes(&quot;UTF-8&quot;));
+//vars.put(&quot;result&quot;,result);
+//log.info(&quot;====********************************************************************&quot;+ response_data);
+//log.info(&quot;====**********&quot;+Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="添加银行卡" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="jsonParam" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${bindCardParam}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">jsonParam</stringProp>
+              </elementProp>
+              <elementProp name="dkey1" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${bindCardkey1}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey1</stringProp>
+              </elementProp>
+              <elementProp name="dkey2" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${bindCardkey2}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey2</stringProp>
+              </elementProp>
+              <elementProp name="dkey3" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${bindCardkey3}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey3</stringProp>
+              </elementProp>
+              <elementProp name="singnStr" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${bindCardSingn}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">singnStr</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">http://10.53.156.126:16014/loan-web-deploy/app/dojson.json</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import com.hsjry.loan.app.common.util.Encrypt3Des;
+import com.wdph.encrypt.ParamConfig;
+//对返回的json数据处理
+String response_data = prev.getResponseDataAsString();
+String result=Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3);
+prev.setResponseData(result.getBytes(&quot;UTF-8&quot;));
+//vars.put(&quot;result&quot;,result);
+//log.info(&quot;====********************************************************************&quot;+ response_data);
+//log.info(&quot;====**********&quot;+Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="提交授信" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="jsonParam" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${updateCreditParam}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">jsonParam</stringProp>
+              </elementProp>
+              <elementProp name="dkey1" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${updateCreditkey1}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey1</stringProp>
+              </elementProp>
+              <elementProp name="dkey2" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${updateCreditkey2}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey2</stringProp>
+              </elementProp>
+              <elementProp name="dkey3" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${updateCreditkey3}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">dkey3</stringProp>
+              </elementProp>
+              <elementProp name="singnStr" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${updateCreditSingn}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">singnStr</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain"></stringProp>
+          <stringProp name="HTTPSampler.port"></stringProp>
+          <stringProp name="HTTPSampler.protocol"></stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">http://10.53.156.126:16014/loan-web-deploy/app/dojson.json</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <BeanShellPostProcessor guiclass="TestBeanGUI" testclass="BeanShellPostProcessor" testname="BeanShell PostProcessor" enabled="true">
+            <boolProp name="resetInterpreter">false</boolProp>
+            <stringProp name="parameters"></stringProp>
+            <stringProp name="filename"></stringProp>
+            <stringProp name="script">import com.hsjry.loan.app.common.util.Encrypt3Des;
+import com.wdph.encrypt.ParamConfig;
+//对返回的json数据处理
+String response_data = prev.getResponseDataAsString();
+String result=Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3);
+prev.setResponseData(result.getBytes(&quot;UTF-8&quot;));
+//vars.put(&quot;result&quot;,result);
+//log.info(&quot;====********************************************************************&quot;+ response_data);
+//log.info(&quot;====**********&quot;+Encrypt3Des.decrypt3DesEncode(response_data, ParamConfig.RESPONSE_KEY1, ParamConfig.RESPONSE_KEY2, ParamConfig.RESPONSE_KEY3));</stringProp>
+          </BeanShellPostProcessor>
+          <hashTree/>
+        </hashTree>
+        <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="响应断言" enabled="true">
+          <collectionProp name="Asserion.test_strings">
+            <stringProp name="-547797305">&quot;success&quot;:true</stringProp>
+          </collectionProp>
+          <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+          <boolProp name="Assertion.assume_success">false</boolProp>
+          <intProp name="Assertion.test_type">2</intProp>
+        </ResponseAssertion>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
+          <stringProp name="delimiter">,</stringProp>
+          <stringProp name="fileEncoding"></stringProp>
+          <stringProp name="filename">/home/jenkins/workspace/PerformanceTest/csv/user.csv</stringProp>
+          <!-- <stringProp name="filename">C:\Users\wenchunbao\Desktop\Jmeter\wanda性能测试\加密脚本\csv\user.csv</stringProp> -->
+          <boolProp name="ignoreFirstLine">false</boolProp>
+          <boolProp name="quotedData">false</boolProp>
+          <boolProp name="recycle">false</boolProp>
+          <stringProp name="shareMode">shareMode.all</stringProp>
+          <boolProp name="stopThread">true</boolProp>
+          <stringProp name="variableNames">user,certno,acctno</stringProp>
+        </CSVDataSet>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="false">
+          <stringProp name="ConstantTimer.delay">2000</stringProp>
+        </ConstantTimer>
+        <hashTree/>
+        <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+          <boolProp name="resetInterpreter">false</boolProp>
+          <stringProp name="parameters"></stringProp>
+          <stringProp name="filename"></stringProp>
+          <stringProp name="script">//导入jar包
+import com.wdph.encrypt.EncryptRsa;
+String telephone = &quot;${user}&quot;;
+String certno = &quot;${certno}&quot;;
+String token = &quot;${token}&quot;;
+String acctno = &quot;${acctno}&quot;;
+String registJson = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;marketingCues\&quot;: \&quot;3\&quot;,&quot;
+				+ &quot;\&quot;authCheckCode\&quot;: \&quot;555588\&quot;,&quot;
+				+ &quot;\&quot;authPassword\&quot;: \&quot;wd123456\&quot;,&quot;
+				+ &quot;\&quot;telephone\&quot;: \&quot;&quot;+telephone+&quot;\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;600010\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;registerService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+String loginJson = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;authPassword\&quot;: \&quot;wd123456\&quot;,&quot;
+				+ &quot;\&quot;identifySource\&quot;: \&quot;555588\&quot;,&quot;
+				+ &quot;\&quot;identifiers\&quot;: \&quot;&quot;+telephone+&quot;\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;600014\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;loginService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+String identityJson = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;issuanceOrg\&quot;: \&quot;长沙市公安局芙蓉分局\&quot;,&quot;
+				+ &quot;\&quot;clientName\&quot;: \&quot;闵文剑\&quot;,&quot;
+				+ &quot;\&quot;idImgFrontType\&quot;: \&quot;3\&quot;,&quot;
+				+ &quot;\&quot;certificateKind\&quot;: \&quot;0\&quot;,&quot;
+				+ &quot;\&quot;invalidDate\&quot;: \&quot;长期\&quot;,&quot;
+				+ &quot;\&quot;idCardNation\&quot;: \&quot;汉\&quot;,&quot;
+				+ &quot;\&quot;idImgReverseType\&quot;: \&quot;3\&quot;,&quot;
+				+ &quot;\&quot;reverseImgUrl\&quot;: \&quot;appfile/20180904/20180904_C28B7AF26B1E40519ED5D3882511C854.jpg\&quot;,&quot;
+				+ &quot;\&quot;publishDate\&quot;: \&quot;2006/02/16\&quot;,&quot;
+				+ &quot;\&quot;certificateAddress\&quot;: \&quot;南昌市东湖区都会在镇大哈村2号\&quot;,&quot;
+				+ &quot;\&quot;frontImgUrl\&quot;: \&quot;appfile/20180904/20180904_223C6304BC3849DF90937BAB0E27CF0A.jpg\&quot;,&quot;
+				+ &quot;\&quot;certificateNo\&quot;: \&quot;&quot;+certno+&quot;\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;7000018\&quot;,&quot;
+				+ &quot;\&quot;tokenId\&quot;: \&quot;&quot;+token+&quot;\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;addIdentityAuthService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+String realNameJson = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;imageUrl\&quot;: \&quot;appfile/20180905/20180905_74A3A6146BA646DB93EB3AE51E75BF59.jpg\&quot;,&quot;
+				+ &quot;\&quot;protobufId\&quot;: \&quot;568e0e99253343ca8bf95ded200b05a7\&quot;,&quot;
+				+ &quot;\&quot;productNo\&quot;: \&quot;PRODUCT0000000000013\&quot;,&quot;
+				+ &quot;\&quot;imageUrl1\&quot;: \&quot;appfile/20180905/20180905_F67454E7C39243B0B2C516D2050ABD99.jpg\&quot;,&quot;
+				+ &quot;\&quot;imageUrl2\&quot;: \&quot;appfile/20180905/20180905_528E2232A6CF4EF9966C876887226C0C.jpg\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;7000084\&quot;,&quot;
+				+ &quot;\&quot;tokenId\&quot;: \&quot;&quot;+token+&quot;\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;senseTimeRealNameVerifyService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+String modifyPersonalJson = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;vocation\&quot;: \&quot;22\&quot;,&quot;
+				+ &quot;\&quot;marriageStatus\&quot;: \&quot;10\&quot;,&quot;
+				+ &quot;\&quot;clientName\&quot;: \&quot;万达惠\&quot;,&quot;
+				+ &quot;\&quot;commonBankCard\&quot;: \&quot; \&quot;,&quot;
+				+ &quot;\&quot;county\&quot;: \&quot;浦东新区\&quot;,&quot;
+				+ &quot;\&quot;province\&quot;: \&quot;上海市\&quot;,&quot;
+				+ &quot;\&quot;productNo\&quot;: \&quot;PRODUCT0000000000013\&quot;,&quot;
+				+ &quot;\&quot;eduLevel\&quot;: \&quot;20\&quot;,&quot;
+				+ &quot;\&quot;clientRelation\&quot;: \&quot;5\&quot;,&quot;	
+				+ &quot;\&quot;street\&quot;: \&quot;北京市朝阳区彩虹路\&quot;,&quot;
+				+ &quot;\&quot;companyName\&quot;: \&quot;北京蓝汛\&quot;,&quot;
+				+ &quot;\&quot;telephone\&quot;: \&quot;13800138002\&quot;,&quot;
+				+ &quot;\&quot;pretaxIncome\&quot;: \&quot;50000\&quot;,&quot;
+				+ &quot;\&quot;companyTelephone\&quot;: \&quot;-\&quot;,&quot;
+				+ &quot;\&quot;businessLicense\&quot;: \&quot; \&quot;,&quot;
+				+ &quot;\&quot;addressClassCode\&quot;: \&quot;21\&quot;,&quot;	
+				+ &quot;\&quot;city\&quot;: \&quot;市辖区\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;7000021\&quot;,&quot;
+				+ &quot;\&quot;tokenId\&quot;: \&quot;&quot;+token+&quot;\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;modifyPersonalUserInfoService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+String bindCardJson = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;authCheckCode\&quot;: \&quot;123242\&quot;,&quot;
+				+ &quot;\&quot;branchName\&quot;: \&quot;上海浦东发展银行\&quot;,&quot;
+				+ &quot;\&quot;certificateNo\&quot;: \&quot;&quot;+certno+&quot;\&quot;,&quot;
+				+ &quot;\&quot;telephone\&quot;: \&quot;&quot;+telephone+&quot;\&quot;,&quot;
+				+ &quot;\&quot;realName\&quot;: \&quot;闵文剑\&quot;,&quot;
+				+ &quot;\&quot;cardNo\&quot;:  \&quot;&quot;+acctno+&quot;\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;600003\&quot;,&quot;
+				+ &quot;\&quot;tokenId\&quot;: \&quot;&quot;+token+&quot;\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;bindCardRealNameService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+String updateCreditJson = &quot;{\&quot;busiObject\&quot;: &quot;
+				+ &quot;{\&quot;productId\&quot;: \&quot;83AAED6733974BE48544DA8B96B197A4\&quot; },&quot;
+				+ &quot;\&quot;deviceId\&quot;: \&quot;1fc21ff5827238328eb9532b07c5a2d4\&quot;,&quot;
+				+ &quot;\&quot;busiNo\&quot;: \&quot;7000023\&quot;,&quot;
+				+ &quot;\&quot;tokenId\&quot;: \&quot;&quot;+token+&quot;\&quot;,&quot;
+				+ &quot;\&quot;serviceId\&quot;: \&quot;updateCreditService\&quot;,&quot;
+				+ &quot;\&quot;fingerPrintDeviceId\&quot;: \&quot;eyJvcyI6ImFuZHJvaWQiLCJ2ZXJzaW9uIjoiMy4xLjEiLCJwYWNrYWdlcyI6ImNvbS53ZGpyLmxvYW5fMS4yLjMiLCJwcm9maWxlX3RpbWUiOjEwMTAwLCJpbnRlcnZhbF90aW1lIjoxMDc5MDkyNSwiZXJyb3JfaW5pdCI6eyJlcnJvcl9jb2RlIjoiWzAxMSwgMDEyXSIsImVycm9yX21zZyI6Ilt7XCJyZWFzb25cIjpcImNvbm5lY3QgdGltZWQgb3V0XCIsXCJ0eXBlXCI6XCJqYXZhLm5ldC5Tb2NrZXRUaW1lb3V0RXhjZXB0aW9uXCIsXCJzdGFja1wiOlwiY24udG9uZ2R1bi5hbmRyb2lkLmNvcmUuVXVVVlVVVlVVdnV2dVZ2dlV2dVZVLlZ1dVZ2VXZVdVZWVnVVVVUuVnV1VnZVdlV1VlZWdVVVVShUb25nRHVuOjY2KVwifSwge1wicmVhc29uXCI6XCJQcm9maWxlIGRlbGF5XCJ9XSJ9LCJkYXRhIjoiS09pWGQ4WDZ2UE5oMTYwZmE5STQ3ZVV1V2NUSVRCcHVxSVNBUmF4VGpFeGxtUGp3TmFVR0cyY0pDQ2RqQzd1bnJDNURlR2hPeWxuTVxuV09XT3dHM2JFWm1SRTBIR1Y3cnRqZDZrSnV0aEVQT3ZvdWhvYnkyWlRUVGswVThkVE53ZUM2bk5pc01RYmVzWlwvRVpGdEJJSUFpODZcblRoejlvYm44R0lPcWgwVFNBS3lJRVFHNUtFSUs3aGFOS3hRclpEdXpWekxFNXJNenU3RkJMZ1RDZnRTWHRYSmZRWGRWYmRlVkNQajlcbkMwUzBZT0l0aThhN0Eydm9YWWgrM2lnazlRVkZsSk80MHluT0dHQ0N2clRtc2lxczJRcWVBbkllak5NOGVEWEFiOExDcUxBQ0JmV1Bcbm53SlJGN0VTZHRBZnlXXC8wZ0RjWHk1a245cmdiQ0tcL3lZcmRoME1JMVE2VkV6Wjl2WmZIN0dNVm5DU0NLSmxcL3ZkXC9UeEtxRkdCdm5iXG5XNlRGd0dXbVVqRzVJckJPMG4zOTBGMXkwMjN0T1BzMjBhSzUwb3U5VVJKQTZkKzVTU000QUJseVR0WG41UTRiOGJkWE5GWG1kNkhjXG4xQ21WSVlWMm9tQ1lCK2dSbFMydmNPaFpweEZsMzB3dThYWVd0N2JFSWV2VkNsc0FTOFdiTU1rOHlRc0h1bkEyMml2WFhyOE04ODN5XG5GbDZjeDl5ZTJrTkk5TEo1R3RheDNuakFTVFVaWEZIQllLdXJKcUxqMDZJZ05lOUptZkRKV01DbnZWUXBSZTNDSVlWMk9od0xJMisxXG5sWXVkVEJWSVBPZnVoekMwRjliNWx3VUg3cmViaTluTGdUM1hZVXg0ckZaa0VITk9xcVNRZlVYdUNVM1BvYWtiQlNvVVZxRmNkeUVKXG4rMjRVS1FhRU5JdEIzOWdRd2c4c0hyR3FGRkRqempLS1lycUxnaDBid2s0SzNkOURCa3lrSHlScWVkb2pwSDhVOGNNeTh3aFJiMmtQXG5lSDlueXd4M2tFOGRodk51MzVzVytRY3BITzlMdjJsdGJnTnJCVm15dFJPUVhFdVVkNnc1NTY1U29cL1VQSnhscDN6Vk00M1dcLzhNNmlcbnIwK0c1c1JkMnp2Z0grV3NNUnVuaVJSTTZwSXBLcUhGT1lNdmpRQ1dxWVVKNFFtMkxxYkNLdEw4ajNBdENFS0dJNUxJVnk3VWVHNXBcbkJaWEt3cU80YXM2S3JFYW5HV3ZHeU5QQW52aTd3bGl0NGZTVXg0ejYzblZWVjB3VHVUT3pVQ09QOFFLZ1pwZFk4UFoxVjZZczd2QXJcbmZMd1Z6TENuRWtSSzNZemwrd0h3Skx1OTZUNHl6bE5aYXBaQmVvYTBobVh5d2NyN3J5Q2pPQmVTc0ZtVlhjTXBiRHM2aXFPbDRvQzJcbm14VVBRNlZ0STROQXZsK0dtSHFkVHlxejZ2cjA5MUNnMDhHdDVxNWc0eE9sZWlmc21hd1JhZDlmZWJRV0tkZmVYNnFUdE1vWHVTNzdcblFWMTV3MVN5S3hRb1dHSXNnVTIrTVI2VWV0YXVDYytLazBTTGNwanU1NFRkZkhVSDJ1a0NvTk5IaFBrTUdIR2gwZm5GQ1dNNTVvQlZcbjZLZTJPNU92SVpqVVg3WTZJaVZVQkZubmMzY01cL2xqSWtaNnpuZW5aTnBjTDFHT2wwSkpXRlJ3UjRTcWlNYVd1Wm5kZWIyVE80TzZOXG5xTCtQZzhsREczZUpLQ05vQXhvQVwvR2l1QXlVc1wva3h1YktcL0t6aW83RWdieSs1RmN4YkNub3hyb3NxbTVlb2phMW95ZUhSbjc2dThUXG5BcjU5ak1ub0pWeWxRekYzQnFSa20remNTeHhWcTZQYUNcL0pndGRxdmJ2NlFVV0FzdTIzdXRRYkVFbXNnbStJNDdFUzNYaitSZFB4YlxudEJWclBNN0pETnM1M0VGbWdETFZETVFrZzArM01WWlpjSDJ6akt1K1wvOTlzMXBLcnIrNWxuSGRiMDZEbXZkYVViQTZueVB4NUhnQ2RcbnJaeStlcXdxelcwN0kyYk14elpOZHI0RURBXC96aGw0eEo1eTNrYU9FaEFYa1pZY0FYUStZbHBESU5aRExuZ091VlBWZEdUZ1daRFMzXG5mbXZwT0VQUExnb0pKbGVRTUh5bHFcL3plWFNkMDFCejVGcEZoWUk1VXg2XC9qTWRlV0puc2EzekpGUlRneFlraEhaMkROYjgxZmR3Q1FcbkF2VVwvXC9oak9IOUxYdUdFOVV3eWlYMlFnaHJJeWZhU3pJcVdCbVhENHBNNEhZZGFOSEluM0o1ZnlvU21RVGJcLzBlSGVPaUZwQ2d1YjhcblQ3VHhwTEdvRkRrZWdya2IwdThEbTVjQmt6a2t0VHZmSkR4Q2x6cXJEd2tiTVZVWXNwbCtaWHVZSzdRZmZUcVVTMlwva2lnUWFEUis4XG41MjNBRFRVVnBBVnI3YnRtZDRFblNiK3JZQ3VSY3p5UXR2WVVKS2Vucys1NGpsZU9LK2xvM3JzcitcL3VucjkwSG9obmJHVWppcmFGVVxuNmlOYzFXTTJKbEZrN2JrbjBGZmg1M1c0bXo3R3BaTzZMN2NIRmlpaSt2Q3IwT0UxQlV1M01XdXNYZmRhd0ZcL3dGQXZPTllJajNSNVZcbjlpTVlWSWNrZkl0WThORXFkMXNRNU5aZ2JuczMxU1pycDVwR1lPNGc5YzNvMTNLSytXT1hwU2RqMkkraFwvayt5cUNuWUw3VFdSblwvK1xuN1NzblA1S3hHNGkzWkt0YkYzQWdmVE1ReUp2dUdhUlRCSW82alVnTTd2UWtXUW11bmQ2ZGxmekhZWEx5Sm9QN1ZvZWl6Rld0S0dCbFxuUUM2NHBkbFVoXC9YSkZpWDhzZlREMmNZZERHUTBuNUd5OWxEVVwvRmpleFNvZVwvNjZPMUY1Q29rWlBFMG1BNjhOU0FEbWJxak8yWEl4NVxuXC9VR3ViSUtPRjVRU2pZVThHREZEejA3MFN4b1V5VWpjV1lqd0VidG85VFBaYUQ1RkFFNG1cL0dyRUNpUGpsYjh5RWJNeGtibE55dzJTXG56NUprWjczQlpIakZxeXI3dEJibW9RbVVyT2NSQmk0ZHFGY1loaGx5NzZpa0J6K29uaDBreVhRNzYzMjBTdnlDd1dMZzZLQWVscUxTXG4yc1wvWTlrcmNIU3FMVmk4RG8xOHkzSlF4RlpBU2I0NWV3VmVYbVcwOUpSOXNvMDFka00xNzlxSlRmMWhjQllCNGxYQitqcWV6a05JT1xuIn0003d\&quot;,&quot;
+				+ &quot;\&quot;channel\&quot;: \&quot;0be500301b6c11e793ae92361f002671\&quot;&quot;
+				+ &quot;}&quot;;
+EncryptRsa rs=new EncryptRsa();
+//register
+//log.info(&quot;%%%%%%%%%%registJson%%%%%%%%%%%%&quot;+registJson+&quot;%%%%%%%%%%%%registJson%%%%%%%%%&quot;);
+Map registMap= rs.getJsonParam(registJson);
+vars.put(&quot;dkey1&quot;,registMap.get(&quot;dkey1&quot;));
+vars.put(&quot;dkey2&quot;,registMap.get(&quot;dkey2&quot;));
+vars.put(&quot;dkey3&quot;,registMap.get(&quot;dkey3&quot;));
+vars.put(&quot;jsonParam&quot;,registMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;singnStr&quot;,registMap.get(&quot;singnStr&quot;));
+//login
+//log.info(&quot;%%%%%%%%%%loginJson%%%%%%%%%%%%&quot;+loginJson+&quot;%%%%%%%%%%loginJson%%%%%%%%%%%&quot;);
+Map loginMap= rs.getJsonParam(loginJson);
+vars.put(&quot;loginkey1&quot;,loginMap.get(&quot;dkey1&quot;));
+vars.put(&quot;loginkey2&quot;,loginMap.get(&quot;dkey2&quot;));
+vars.put(&quot;loginkey3&quot;,loginMap.get(&quot;dkey3&quot;));
+vars.put(&quot;loginParam&quot;,loginMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;loginSingn&quot;,loginMap.get(&quot;singnStr&quot;));
+//addIdentityAuthService
+//log.info(&quot;%%%%%%%%%%identityJson%%%%%%%%%%%%&quot;+identityJson+&quot;%%%%%%%%%%identityJson%%%%%%%%%%%&quot;);
+Map identityMap= rs.getJsonParam(identityJson);
+vars.put(&quot;identitykey1&quot;,identityMap.get(&quot;dkey1&quot;));
+vars.put(&quot;identitykey2&quot;,identityMap.get(&quot;dkey2&quot;));
+vars.put(&quot;identitykey3&quot;,identityMap.get(&quot;dkey3&quot;));
+vars.put(&quot;identityParam&quot;,identityMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;identitySingn&quot;,identityMap.get(&quot;singnStr&quot;));
+//senseTimeRealNameVerifyService
+//log.info(&quot;%%%%%%%%%%realNameJson%%%%%%%%%%%%&quot;+realNameJson+&quot;%%%%%%%%%%realNameJson%%%%%%%%%%%&quot;);
+Map realNameMap= rs.getJsonParam(realNameJson);
+vars.put(&quot;realNamekey1&quot;,realNameMap.get(&quot;dkey1&quot;));
+vars.put(&quot;realNamekey2&quot;,realNameMap.get(&quot;dkey2&quot;));
+vars.put(&quot;realNamekey3&quot;,realNameMap.get(&quot;dkey3&quot;));
+vars.put(&quot;realNameParam&quot;,realNameMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;realNameSingn&quot;,realNameMap.get(&quot;singnStr&quot;));
+//modifyPersonalUserInfoService
+//log.info(&quot;%%%%%%%%%%modifyPersonalJson%%%%%%%%%%%%&quot;+modifyPersonalJson+&quot;%%%%%%%%%%modifyPersonalJson%%%%%%%%%%%&quot;);
+Map modifyPersonMap= rs.getJsonParam(modifyPersonalJson);
+vars.put(&quot;modifyPersonkey1&quot;,modifyPersonMap.get(&quot;dkey1&quot;));
+vars.put(&quot;modifyPersonkey2&quot;,modifyPersonMap.get(&quot;dkey2&quot;));
+vars.put(&quot;modifyPersonkey3&quot;,modifyPersonMap.get(&quot;dkey3&quot;));
+vars.put(&quot;modifyPersonParam&quot;,modifyPersonMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;modifyPersonSingn&quot;,modifyPersonMap.get(&quot;singnStr&quot;));
+//bindCardRealNameService
+//log.info(&quot;%%%%%%%%%%bindCardJson%%%%%%%%%%%%&quot;+bindCardJson+&quot;%%%%%%%%%%bindCardJson%%%%%%%%%%%&quot;);
+Map bindCardMap= rs.getJsonParam(bindCardJson);
+vars.put(&quot;bindCardkey1&quot;,bindCardMap.get(&quot;dkey1&quot;));
+vars.put(&quot;bindCardkey2&quot;,bindCardMap.get(&quot;dkey2&quot;));
+vars.put(&quot;bindCardkey3&quot;,bindCardMap.get(&quot;dkey3&quot;));
+vars.put(&quot;bindCardParam&quot;,bindCardMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;bindCardSingn&quot;,bindCardMap.get(&quot;singnStr&quot;));
+
+//updateCreditService
+//log.info(&quot;%%%%%%%%%%updateCreditJson%%%%%%%%%%%%&quot;+updateCreditJson+&quot;%%%%%%%%%%updateCreditJson%%%%%%%%%%%&quot;);
+Map updateCreditMap= rs.getJsonParam(updateCreditJson);
+vars.put(&quot;updateCreditkey1&quot;,updateCreditMap.get(&quot;dkey1&quot;));
+vars.put(&quot;updateCreditkey2&quot;,updateCreditMap.get(&quot;dkey2&quot;));
+vars.put(&quot;updateCreditkey3&quot;,updateCreditMap.get(&quot;dkey3&quot;));
+vars.put(&quot;updateCreditParam&quot;,updateCreditMap.get(&quot;jsonParam&quot;));
+vars.put(&quot;updateCreditSingn&quot;,updateCreditMap.get(&quot;singnStr&quot;));
+</stringProp>
+        </BeanShellPreProcessor>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+    <WorkBench guiclass="WorkBenchGui" testclass="WorkBench" testname="工作台" enabled="true">
+      <boolProp name="WorkBench.save">true</boolProp>
+    </WorkBench>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>
